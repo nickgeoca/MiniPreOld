@@ -3,7 +3,7 @@ const AIX = artifacts.require("AIX");
 const PlaceHolder = artifacts.require("PlaceHolder");
 const PreSale = artifacts.require("PreSale");
 const Contribution = artifacts.require("Contribution");
-const MultiSigWallet = artifacts.require("MultiSigWallet");
+// const MultiSigWallet = artifacts.require("MultiSigWallet");
 const Exchanger = artifacts.require('Exchanger');
 const abiEncoder = require('ethereumjs-abi');
 
@@ -23,6 +23,9 @@ const duration = {
 
 module.exports = function(deployer, chain, accounts) {
   return deployer.deploy(MiniMeTokenFactory).then(async () => {
+    const args = process.argv.slice();
+    const multisig = args[3];
+
     const tokenFactory = await MiniMeTokenFactory.deployed();
     const encodedParamsAIX = abiEncoder.rawEncode(['address'], [tokenFactory.address]);
     await deployer.deploy(AIX, tokenFactory.address);
@@ -35,8 +38,8 @@ module.exports = function(deployer, chain, accounts) {
 
     const contribution = await Contribution.deployed();
     await aix.changeController(contribution.address);
-    await deployMultisig(deployer, accounts);
-    const multiSig = await MultiSigWallet.deployed();
+    // await deployMultisig(deployer, accounts);
+    // const multiSig = await MultiSigWallet.deployed();
 
     const APT_TOKEN_ADDRESS = "0x23aE3C5B39B12f0693e05435EeaA1e51d8c61530";
     const encodedExchangerParams = abiEncoder.rawEncode(['address', 'address', 'address'], [APT_TOKEN_ADDRESS, aix.address, contribution.address]);
@@ -64,7 +67,7 @@ module.exports = function(deployer, chain, accounts) {
     // uint256 _endTime
     await contribution.initialize(aix.address,
       exchanger.address,
-      multiSig.address,
+      multisig,
       _remainderHolder,
       _devHolder,
       _communityHolder,
@@ -76,7 +79,7 @@ module.exports = function(deployer, chain, accounts) {
   });
 };
 
-
+/*
 async function deployMultisig(deployer, accounts) {
   const owner1 = accounts[0];
   const owner2 = accounts[1];
@@ -87,3 +90,4 @@ async function deployMultisig(deployer, accounts) {
   console.log('MULTISIG PARAMS : \n', encodedParams.toString('hex'));
   return deployer.deploy(MultiSigWallet, [owner1, owner2], 1);
 }
+*/
