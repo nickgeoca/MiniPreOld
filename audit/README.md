@@ -137,14 +137,32 @@ TODO
   * [ ] contract ApproveAndCallFallBack 
   * [ ] contract MiniMeToken is Controlled 
   * [ ] contract MiniMeTokenFactory 
-* [ ] [code-review/MultiSigWallet.md](code-review/MultiSigWallet.md)
-  * [ ] contract MultiSigWallet 
 * [ ] [code-review/PlaceHolder.md](code-review/PlaceHolder.md)
   * [ ] contract PlaceHolder is Controlled, TokenController 
 * [ ] [code-review/PreSale.md](code-review/PreSale.md)
   * [ ] contract PreSale is Controlled, TokenController 
 * [ ] [code-review/RemainderTokenHolder.md](code-review/RemainderTokenHolder.md)
   * [ ] contract RemainderTokenHolder is Controlled 
+
+<br />
+
+### Not Reviewed
+
+* [ ] [../contracts/MultiSigWallet.sol](../contracts/MultiSigWallet.sol)
+
+  The ConsenSys/Gnosis multisig wallet is the same as used in the [Aigang Presale](https://github.com/bokkypoobah/AigangPresaleContractAudit/blob/master/contracts/MultiSigWallet.sol).
+
+  The only difference is in the Solidity version number:
+
+  ```diff
+  $ diff MultiSigWallet.sol ../../AigangPresaleContractAudit/contracts/MultiSigWallet.sol 
+  1c1
+  < pragma solidity 0.4.15;
+  ---
+  > pragma solidity 0.4.11;
+  ```
+
+<br />
 
 ### Differences In MiniMeToken.sol Between The Aigang Presale And Crowdsale Contracts
 
