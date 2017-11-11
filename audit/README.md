@@ -13,6 +13,20 @@ This audit has been conducted on indaHash's source code in commits
 
 TODO: Check - No potential vulnerabilities have been identified in the crowdsale and token contract.
 
+### Mainnet Addresses
+
+<br />
+
+### Crowdsale Contract
+
+<br />
+
+### Token Contract
+
+* Based on MiniMeToken
+* Has `function approveAndCall(address _spender, uint256 _amount, bytes _extraData) returns (bool success);`
+
+<br />
 
 ## Table Of Contents
 
@@ -99,6 +113,10 @@ TODO
 
 ## Code Review
 
+* [x] [code-review/SafeMath.md](code-review/SafeMath.md)
+  * [x] library SafeMath
+* [x] [code-review/ERC20.md](code-review/ERC20.md)
+  * [x] contract ERC20 
 * [x] [code-review/AIX.md](code-review/AIX.md)
   * [x] contract AIX is MiniMeToken 
 * [x] [code-review/APT.md](code-review/APT.md)
@@ -109,8 +127,6 @@ TODO
   * [ ] contract Contribution is Controlled, TokenController 
 * [ ] [code-review/DevTokensHolder.md](code-review/DevTokensHolder.md)
   * [ ] contract DevTokensHolder is Controlled 
-* [x] [code-review/ERC20.md](code-review/ERC20.md)
-  * [x] contract ERC20 
 * [ ] [code-review/Exchanger.md](code-review/Exchanger.md)
   * [ ] contract Exchanger is Controlled 
 * [ ] [code-review/Migrations.md](code-review/Migrations.md)
@@ -129,7 +145,6 @@ TODO
   * [ ] contract PreSale is Controlled, TokenController 
 * [ ] [code-review/RemainderTokenHolder.md](code-review/RemainderTokenHolder.md)
   * [ ] contract RemainderTokenHolder is Controlled 
-* [ ] [code-review/SafeMath.md](code-review/SafeMath.md)
 
 ### Differences In MiniMeToken.sol Between The Aigang Presale And Crowdsale Contracts
 
