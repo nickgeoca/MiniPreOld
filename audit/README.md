@@ -99,10 +99,10 @@ TODO
 
 ## Code Review
 
-* [ ] [code-review/AIX.md](code-review/AIX.md)
-  * [ ] contract AIX is MiniMeToken 
-* [ ] [code-review/APT.md](code-review/APT.md)
-  * [ ] contract APT is MiniMeToken 
+* [x] [code-review/AIX.md](code-review/AIX.md)
+  * [x] contract AIX is MiniMeToken 
+* [x] [code-review/APT.md](code-review/APT.md)
+  * [x] contract APT is MiniMeToken 
 * [ ] [code-review/CommunityTokenHolder.md](code-review/CommunityTokenHolder.md)
   * [ ] contract CommunityTokenHolder is Controlled 
 * [ ] [code-review/Contribution.md](code-review/Contribution.md)

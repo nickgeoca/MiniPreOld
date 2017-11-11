@@ -7,9 +7,11 @@ Source file [../../contracts/APT.sol](../../contracts/APT.sol).
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.11;
 
 
+// BK Ok
 import "./MiniMeToken.sol";
 
 
@@ -20,10 +22,12 @@ import "./MiniMeToken.sol";
  * @dev IMPORTANT NOTE: do not use or deploy this contract as-is. It needs some changes to be
  * production ready.
  */
+// BK Ok
 contract APT is MiniMeToken {
   /**
     * @dev Constructor
   */
+  // BK Ok - Constructor
   function APT(address _tokenFactory)
     MiniMeToken(
       _tokenFactory,

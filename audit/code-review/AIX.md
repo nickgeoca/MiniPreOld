@@ -7,9 +7,11 @@ Source file [../../contracts/AIX.sol](../../contracts/AIX.sol).
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.15;
 
 
+// BK Ok
 import "./MiniMeToken.sol";
 
 
@@ -24,6 +26,7 @@ contract AIX is MiniMeToken {
   /**
     * @dev Constructor
   */
+  // BK Ok - Constructor
   function AIX(address _tokenFactory)
     MiniMeToken(
       _tokenFactory,
@@ -35,7 +38,9 @@ contract AIX is MiniMeToken {
       true                      // Enable transfers
     ) {}
 
+    // BK Ok - Reject ETH
     function() payable {
+      // BK Ok
       require(false);
     }
 }
