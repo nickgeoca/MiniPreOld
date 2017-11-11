@@ -7,13 +7,16 @@ Source file [../../contracts/ERC20.sol](../../contracts/ERC20.sol).
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.15;
 
+// BK Ok
 contract ERC20 {
   /// @notice Send `_amount` tokens to `_to` from `msg.sender`
   /// @param _to The address of the recipient
   /// @param _amount The amount of tokens to be transferred
   /// @return Whether the transfer was successful or not
+  // BK Ok
   function transfer(address _to, uint256 _amount) returns (bool success);
 
   /// @notice Send `_amount` tokens to `_to` from `_from` on the condition it
@@ -22,11 +25,13 @@ contract ERC20 {
   /// @param _to The address of the recipient
   /// @param _amount The amount of tokens to be transferred
   /// @return True if the transfer was successful
+  // BK Ok
   function transferFrom(address _from, address _to, uint256 _amount
   ) returns (bool success);
 
   /// @param _owner The address that's balance is being requested
   /// @return The balance of `_owner` at the current block
+  // BK Ok
   function balanceOf(address _owner) constant returns (uint256 balance);
 
   /// @notice `msg.sender` approves `_spender` to spend `_amount` tokens on
@@ -35,6 +40,7 @@ contract ERC20 {
   /// @param _spender The address of the account able to transfer the tokens
   /// @param _amount The amount of tokens to be approved for transfer
   /// @return True if the approval was successful
+  // BK Ok
   function approve(address _spender, uint256 _amount) returns (bool success);
 
   /// @dev This function makes it easy to read the `allowed[]` map
@@ -42,6 +48,7 @@ contract ERC20 {
   /// @param _spender The address of the account able to transfer the tokens
   /// @return Amount of remaining tokens of _owner that _spender is allowed
   ///  to spend
+  // BK Ok
   function allowance(address _owner, address _spender
   ) constant returns (uint256 remaining);
 
@@ -52,11 +59,14 @@ contract ERC20 {
   /// @param _spender The address of the contract able to transfer the tokens
   /// @param _amount The amount of tokens to be approved for transfer
   /// @return True if the function call was successful
+  // BK NOTE - This is not a standard ERC20 function
+  // BK Ok
   function approveAndCall(address _spender, uint256 _amount, bytes _extraData
   ) returns (bool success);
 
   /// @dev This function makes it easy to get the total number of tokens
   /// @return The total number of tokens
+  // BK Ok
   function totalSupply() constant returns (uint);
 }
 

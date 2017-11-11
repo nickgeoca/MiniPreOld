@@ -109,8 +109,8 @@ TODO
   * [ ] contract Contribution is Controlled, TokenController 
 * [ ] [code-review/DevTokensHolder.md](code-review/DevTokensHolder.md)
   * [ ] contract DevTokensHolder is Controlled 
-* [ ] [code-review/ERC20.md](code-review/ERC20.md)
-  * [ ] contract ERC20 
+* [x] [code-review/ERC20.md](code-review/ERC20.md)
+  * [x] contract ERC20 
 * [ ] [code-review/Exchanger.md](code-review/Exchanger.md)
   * [ ] contract Exchanger is Controlled 
 * [ ] [code-review/Migrations.md](code-review/Migrations.md)
