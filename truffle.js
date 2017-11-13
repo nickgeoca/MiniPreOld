@@ -31,6 +31,7 @@ module.exports = {
       from: rinkebyProvider.getAddress() 
     },
     kovan: {
+      gasPrice: 1000000000, 
       gas: 4700000,
       provider: kovanProvider,
       network_id: 42,
