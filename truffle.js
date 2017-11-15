@@ -25,7 +25,8 @@ module.exports = {
       from: ropstenProvider.getAddress() 
     },
     rinkeby: { 
-      gas: 5000000,
+      gasPrice: 1000000000, 
+      gas: 4700000,
       network_id: 4, 
       provider: rinkebyProvider,
       from: rinkebyProvider.getAddress() 
