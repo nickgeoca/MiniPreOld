@@ -21,18 +21,22 @@ module.exports = function (deployer, chain, accounts) {
   return deployer.deploy(SafeMath).then(async () => {
 
     // Parameters
-    const timeFromStart = duration.hours(1);                   // seconds
-    const presaleDuration = duration.seconds(60);              // seconds
-    const walletAddress = '0x7a4baa345548aa30f11ffa61d2a7a685ea4537a9';
-    const presaleSupplyCap = 100;                              // tokens
+    const timeFromStart = duration.minutes(8);                // seconds
+    const presaleDuration = duration.minutes(30);              // seconds
+    const walletAddress = '0xF1F69b62Ba6721bcdc2E6A29DA87991C185a4e9a';
+    const presaleSupplyCap = 100;                              // token major unit (like ether)
     const minimumInvestment = 0.1;                             // ether
+
     const blockDuration = 14;                                  // seconds
-    const latestBlock = 4718510;
+    const latestBlock = 1254259;                               // latest block number on respective network
 
     // Deployment
-    const startBlock = latestBlock + blockDuration * timeFromStart;
-    const endBlock = startBlock + blockDuration * presaleDuration;
-    const weiMinimumInvestment = new BigNumber(10**18) * new BigNumber(minimumInvestment);  // wei
+    const startBlock = latestBlock + Math.floor(timeFromStart / blockDuration);
+    const endBlock = startBlock + Math.floor(presaleDuration / blockDuration);
+    const presaleSupplyCapQuanta = new BigNumber(10**18)       // token quantum unit (like wei)
+          * new BigNumber(presaleSupplyCap);
+    const weiMinimumInvestment = new BigNumber(10**18)         // wei
+          * new BigNumber(minimumInvestment);
     console.log('Start block- ' + startBlock);
     console.log('End block- '   + endBlock);
 
@@ -48,7 +52,7 @@ module.exports = function (deployer, chain, accounts) {
     await apt.changeController(PreSale.address)
     await ps.initialize(
       walletAddress,
-      presaleSupplyCap,
+      presaleSupplyCapQuanta,
       weiMinimumInvestment,
       startBlock,
       endBlock
