@@ -11,11 +11,11 @@ import "./MiniMeToken.sol";
  * @dev IMPORTANT NOTE: do not use or deploy this contract as-is. It needs some changes to be
  * production ready.
  */
-contract APT is MiniMeToken {
+contract MainToken is MiniMeToken {
   /**
     * @dev Constructor
   */
-  function APT(address _tokenFactory)
+  function MainToken(address _tokenFactory)
     MiniMeToken(
       _tokenFactory,
       0x0,                      // no parent token
