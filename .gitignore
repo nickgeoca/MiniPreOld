@@ -13,3 +13,5 @@ audit/test/testchain/history*
 
 keys.js
 package-lock.json
+
+*~
