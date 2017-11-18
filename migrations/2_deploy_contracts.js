@@ -1,5 +1,5 @@
 var MiniMeTokenFactory = artifacts.require("MiniMeTokenFactory");
-var APT = artifacts.require("APT");
+var MainToken = artifacts.require("MainToken");
 var PlaceHolder = artifacts.require("PlaceHolder");
 var SafeMath = artifacts.require("SafeMath");
 var PreSale = artifacts.require("PreSale");
@@ -41,12 +41,12 @@ module.exports = function (deployer, chain, accounts) {
     console.log('End block- '   + endBlock);
 
     await deployer.deploy(MiniMeTokenFactory);
-    await deployer.deploy(APT, MiniMeTokenFactory.address);
-    await deployer.deploy(PlaceHolder, APT.address);
+    await deployer.deploy(MainToken, MiniMeTokenFactory.address);
+    await deployer.deploy(PlaceHolder, MainToken.address);
     deployer.link(SafeMath, PreSale);
-    await deployer.deploy(PreSale, APT.address, PlaceHolder.address);
+    await deployer.deploy(PreSale, MainToken.address, PlaceHolder.address);
 
-    const apt = await APT.deployed();
+    const apt = await MainToken.deployed();
     const ps = await PreSale.deployed();
 
     await apt.changeController(PreSale.address)
